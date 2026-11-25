@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install — HackOn Photo & Video DeDupe</title>
+<meta name="description" content="HackOn Photo &amp; Video DeDupe — a retro desktop app that finds duplicate photos and videos and cleans up extra movie/TV copies, safely and locally.">
+<link rel="icon" href="assets/icon.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="index.html"><img class="brandlogo" src="assets/logo-hackon-systems.svg" alt="HackOn Systems"></a>
+  <nav><a href='index.html'>HOME</a><a href='install.html' style='text-shadow:var(--glow)'>INSTALL</a><a href='help.html'>HELP</a><a href='about.html'>ABOUT</a><a href='https://github.com/Hackenon' target='_blank' rel='noopener'>GITHUB</a></nav>
+</div></header>
+<div class='wrap doc'><h2 id='hackon-photo-video-dedupe-install'>HackOn Photo &amp; Video DeDupe — Install</h2>
+<h3 id='requirements'>Requirements</h3>
+<ul><li><strong>Python 3.10 or newer</strong> (the app is developed on 3.15).</li><li>Windows 10/11 or macOS. A local folder or a network share to scan.</li><li><strong>FFmpeg / ffprobe</strong> (for video resolution, codec and length) is handled for you:</li></ul>
+<p>  on Windows, open <strong>Setup &amp;rarr; Options</strong> and click <strong>GET FFMPEG</strong> &amp;mdash; the app downloads it into   its own folder (no winget, no admin, nothing installed system-wide). On macOS, if a system   <code>ffprobe</code> is on your PATH the app uses it; a one-click download for Mac is coming. Photo and   movie/TV duplicate-finding works with or without it &amp;mdash; it only adds the video details column.</p>
+<h3 id='install-run-from-source'>Install &amp; run (from source)</h3>
+<pre class='help-code'># 1. Get the code (download the ZIP or clone the repo), then open a terminal in its folder.
+
+# 2. Make a virtual environment
+python -m venv .venv
+
+# 3. Activate it
+.venv\Scripts\activate          # Windows
+source .venv/bin/activate       # macOS / Linux
+
+# 4. Install dependencies
+pip install -r requirements.txt
+
+# 5. Run it
+python app.py</pre>
+<p>The app opens your default browser at <strong>http://127.0.0.1:5000</strong> automatically. (Start it with <code>python app.py --no-browser</code> to skip that.)</p>
+<h3 id='first-run'>First run</h3>
+<ol><li>The <strong>SETUP</strong> page opens. You can <strong>SKIP FOR NOW</strong> — photo scanning needs no setup.</li><li>Optional: on first run, press <strong>PROBE LOCAL NETWORK</strong> to find Radarr/Sonarr/Plex, or enter them</li></ol>
+<p>   by hand, then <strong>SAVE SETTINGS</strong>.</p>
+<ol><li>Go to <strong>PHOTO SCAN</strong>, pick a folder, and <strong>RUN SCAN</strong>.</li></ol>
+<h3 id='updating'>Updating</h3>
+<p>Pull/download the new code, then with the virtual environment active run <code>pip install -r requirements.txt</code> again in case dependencies changed, and start the app.</p>
+<h3 id='where-your-data-lives-kept-out-of-version-control'>Where your data lives (kept out of version control)</h3>
+<table class='help-table'><thead><tr><th>File / folder</th><th>What it holds</th></tr></thead><tbody><tr><td><code>settings.json</code></td><td>Your settings and folder shortcuts (API keys/token are in the OS keychain, not here)</td></tr><tr><td><code>results.json</code>, <code>movie_results.json</code>, <code>tv_results.json</code></td><td>The latest scan results</td></tr><tr><td><code>fingerprints.json</code></td><td>Cached photo fingerprints (so rescans are fast)</td></tr><tr><td><code>moves.json</code>, <code>movie_moves.json</code>, <code>tv_moves.json</code></td><td>Undo history for moves</td></tr><tr><td><code>deleted_photos.json</code>, <code>deleted_movies.json</code>, <code>deleted_tv.json</code></td><td>Records of files you deleted out of <code>_review</code> (kept for a future recovery feature)</td></tr><tr><td><code>unplayable.json</code></td><td>Which files the Play button couldn&#x27;t play (so it stays greyed)</td></tr><tr><td><code>perf.json</code></td><td>Learned read speed, for the full-hash time estimate</td></tr><tr><td><code>logs/</code></td><td>Error logs (only if something went wrong)</td></tr><tr><td><code>_review/</code> (inside a scanned/root folder)</td><td>Files you moved, waiting for you to delete or undo</td></tr></tbody></table>
+<p>To start completely fresh, close the app and delete those files.</p>
+<h3 id='uninstall'>Uninstall</h3>
+<p>Delete the app folder (including <code>.venv</code>). To also clear saved keys, sign out of Plex in Setup and remove the app&#x27;s entries from Windows Credential Manager / macOS Keychain (named <code>hackon-dedupe</code>).</p>
+<h3 id='notes-on-a-packaged-release'>Notes on a packaged release</h3>
+<p>A windowed desktop build (its own window; quits when you close the browser) exists for Windows. A one-click <strong>installer</strong> — signed Windows <code>.exe</code> / Mac <code>.app</code>, with Python and FFmpeg bundled — is still on the roadmap, so until then the from-source steps above are the way.</p></div>
+<footer class="site"><div class="wrap">
+  <div>&copy; 2026 HackOn Systems &middot; <a href="https://github.com/Hackenon" target="_blank" rel="noopener">Source on GitHub</a></div>
+  <div class="fine">Not affiliated with Plex, Jellyfin, Radarr or Sonarr. Works alongside them.</div>
+</div></footer>
+</body>
+</html>

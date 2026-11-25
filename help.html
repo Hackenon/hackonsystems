@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Help — HackOn Photo & Video DeDupe</title>
+<meta name="description" content="HackOn Photo &amp; Video DeDupe — a retro desktop app that finds duplicate photos and videos and cleans up extra movie/TV copies, safely and locally.">
+<link rel="icon" href="assets/icon.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="index.html"><img class="brandlogo" src="assets/logo-hackon-systems.svg" alt="HackOn Systems"></a>
+  <nav><a href='index.html'>HOME</a><a href='install.html'>INSTALL</a><a href='help.html' style='text-shadow:var(--glow)'>HELP</a><a href='about.html'>ABOUT</a><a href='https://github.com/Hackenon' target='_blank' rel='noopener'>GITHUB</a></nav>
+</div></header>
+<div class='wrap doc'><h2 id='hackon-photo-video-dedupe-help'>HackOn Photo &amp; Video DeDupe — Help</h2>
+<p>A friendly guide to using the app.</p>
+<h3 id='what-it-does'>What it does</h3>
+<p>Finds duplicate and leftover photos, movies and TV in your library, shows them in a retro green-screen web page, and moves the extras you choose into a <code>_review</code> folder — <strong>nothing is deleted without you</strong>, and every move can be undone. It works on its own, or smarter when you connect Radarr, Sonarr, and a media server (Plex or Jellyfin).</p>
+<h3 id='the-pages'>The pages</h3>
+<ul><li><strong>PHOTO SCAN</strong> — pick a folder (local or a network share like <code>\\nas\Photos</code>) and scan it for</li></ul>
+<p>  duplicate photos and videos.</p>
+<ul><li><strong>MOVIES / TV</strong> — cross-check your library against Radarr / Sonarr to find extra copies and stray</li></ul>
+<p>  folders, or <strong>SCAN FOLDER</strong> to scan any folder of movies/TV with no library manager.</p>
+<ul><li><strong>SETUP</strong> — pick and connect your apps (a media server, Plex or Jellyfin, plus the Radarr/Sonarr library managers), set options, and (first run) discover your servers.</li><li><strong>ERRORS</strong> — appears only if something went wrong; lists anything logged on this computer.</li></ul>
+<h3 id='photo-scan-step-by-step'>Photo scan, step by step</h3>
+<ol><li>On <strong>PHOTO SCAN</strong>, type or BROWSE to a folder, then <strong>RUN SCAN</strong>.</li><li>Watch the scan &quot;theater&quot; run. When it finishes, the <strong>Summary</strong> and <strong>Results</strong> appear.</li><li>In each group, the best copy is marked. Click <strong>[X] KEEP / [ ] MOVE</strong> to choose what to keep.</li></ol>
+<p>   A group with nothing kept is skipped — you can never move every copy by accident.</p>
+<ol><li>Press <strong>MOVE</strong> to move the unticked files into <code>_review</code>. Press <strong>UNDO</strong> to put the last batch</li></ol>
+<p>   back exactly where it was.</p>
+<ol><li><strong>Empty folders</strong> — a section lists any folder under your scan with no photos or videos.</li></ol>
+<p>   Completely empty ones are ticked for you; folders that still hold other files are shown so you can    decide. <strong>DELETE SELECTED PERMANENTLY</strong> removes the ticked ones (this one has no undo).</p>
+<h4 id='kinds-of-match'>Kinds of match</h4>
+<ul><li><strong>Exact duplicates</strong> — byte-for-byte identical files.</li><li><strong>Copies</strong> — the same photo re-saved/resized; the highest-resolution one is kept by default.</li><li><strong>Similar shots</strong> — burst/near-identical shots; nothing is pre-selected, you choose.</li></ul>
+<h3 id='movies-tv'>Movies &amp; TV</h3>
+<p>With Radarr/Sonarr connected, the app knows exactly which file each movie/episode &quot;really&quot; is, so it can tell real copies from leftovers.</p>
+<p><strong>No Radarr/Sonarr?</strong> Use <strong>SCAN FOLDER</strong> to scan any folder of movies or TV directly — it finds the same title in several files, byte-identical files, and (movies) several videos in one folder; you choose what to keep. When a media server is connected, one-click <strong>library-folder shortcuts</strong> let you scan a Plex or Jellyfin library folder without typing a path.</p>
+<ul><li><strong>Extra copies</strong> — other video files in a tracked folder. The tracked file starts as KEEP.</li><li><strong>Stray folders / loose files</strong> — folders or files that belong to no movie/episode. Each shows</li></ul>
+<p>  where it is (<strong>AT:</strong> its full path) and, when known, where Radarr/Sonarr keeps the real copy, so   you can decide what to do. Tick to move.</p>
+<ul><li><strong>Empty folders</strong> — their own section, listing folders with no video. Completely empty ones are</li></ul>
+<p>  pre-ticked; folders that still hold files (posters, <code>.nfo</code>) are shown and left unticked.   <strong>DELETE SELECTED PERMANENTLY</strong> removes the ticked ones (no undo).</p>
+<ul><li><strong>Two move options</strong> — <strong>MOVE → DEFAULT</strong> sends ticked items to the per-app default move folder</li></ul>
+<p>  (set in <strong>Setup &gt; Options</strong>; when it&#x27;s blank they go to a <code>_review</code> folder inside each root, with   <code>_review/*</code> added to <code>.plexignore</code>, or an <code>.ignore</code> file for Jellyfin). <strong>MOVE TO LOCATION…</strong> browses to a folder to relocate a stray   (for example to fix the library). Radarr/Sonarr and your media server (Plex or Jellyfin) rescan after either; <strong>UNDO</strong> puts the last   batch back.</p>
+<ul><li><strong>Fast byte-identical check</strong> — for files over 100 MB the scan compares the first and last 50 MB</li></ul>
+<p>  (smaller files are read in full), so large libraries over a network scan quickly. A match found   this way is flagged <strong>&quot;likely identical -- not fully verified&quot;</strong>, with a <strong>VERIFY (FULL HASH)</strong>   button that reads the whole files to confirm (or shows which ones actually differ). It streams to   the scan theater and shows a time estimate.</p>
+<ul><li><strong>Tracked-file warning</strong> — if you tick a file Radarr/Sonarr still tracks, you&#x27;re warned, because</li></ul>
+<p>  moving it may make them re-download it.</p>
+<h3 id='if-a-file-was-moved-or-renamed-after-a-scan-the-trace'>If a file was moved or renamed after a scan (the &quot;trace&quot;)</h3>
+<p>Open a photo that&#x27;s since moved and the app runs <strong>TRACE.EXE</strong>: it sweeps the scanned folder to find the file again (by timestamp, picture fingerprint or exact match), shows it, and offers to <strong>RECOVER</strong> — which just updates where the results look. No files are moved by a trace.</p>
+<h3 id='setup'>Setup</h3>
+<p>Pick each app from its dropdown — a <strong>media server</strong> (Plex or Jellyfin) and a <strong>movie/TV library manager</strong> (Radarr/Sonarr). An app&#x27;s settings appear only once you select it; apps that aren&#x27;t built yet (Emby, Medusa/SickGear) show as <strong>coming soon</strong>.</p>
+<ul><li><strong>Radarr / Sonarr</strong> — enter the address and API key (Settings &gt; General &gt; Security in each app).</li></ul>
+<p>  <strong>TEST CONNECTION</strong> checks it and maps your folders. <strong>GRAB KEY FROM SERVER</strong> can read the key   automatically if that server allows local access without a sign-in (with a warning about what   that means).</p>
+<ul><li><strong>Plex</strong> — <strong>SIGN IN WITH PLEX</strong> uses Plex&#x27;s own page (your password never reaches the app), or</li></ul>
+<p>  <strong>PROBE FOR BACKDOOR</strong> if Plex trusts your network. You can revoke access anytime in your Plex   account&#x27;s Authorized Devices.</p>
+<ul><li><strong>Jellyfin</strong> — enter the address (e.g. <code>http://localhost:8096</code>) and an <strong>API key</strong> created in</li></ul>
+<p>  Jellyfin&#x27;s <strong>Dashboard &gt; API Keys</strong>. <strong>TEST CONNECTION</strong> checks it and maps your library folders.   (The same key works for Emby, which is coming soon.)</p>
+<ul><li><strong>PROBE LOCAL NETWORK</strong> (first run) — scans only your own network for Radarr, Sonarr, Plex, Jellyfin/Emby and Medusa/SickGear, and</li></ul>
+<p>  offers to fill them in. Same-server addresses are grouped and the faster one is marked.</p>
+<ul><li><strong>Options</strong> — grouped into sub-sections: <strong>Video details</strong> (read after a scan or during every</li></ul>
+<p>  scan), <strong>FFprobe</strong> (<strong>GET FFMPEG</strong> downloads the video-detail tool for you — no manual install),   <strong>Default move locations</strong> (a per-app folder for moved Movies/TV files), <strong>Bug reports</strong>, and   <strong>Security</strong> (key storage and an HTTP warning). Each Settings section (Radarr, Sonarr, Plex,   Options) folds so you can collapse what you&#x27;re not using.</p>
+<h3 id='bug-reports'>Bug reports</h3>
+<p>If something unexpected breaks, it&#x27;s logged on <strong>this computer only</strong> — a banner says so and <strong>nothing is sent</strong>. <strong>REVIEW &amp; REPORT</strong> shows exactly what a report contains (API keys, network addresses and your Windows username are removed; file/folder names are not), and you submit it on GitHub yourself, or dismiss it.</p>
+<h3 id='troubleshooting'>Troubleshooting</h3>
+<ul><li><strong>Movies/TV manager scan unavailable</strong> — connect Radarr/Sonarr in Setup for the smart scan; you can still <strong>SCAN FOLDER</strong> on any folder without them.</li><li><strong>&quot;NOT CHECKED&quot; items</strong> — Radarr/Sonarr point at a folder the app can&#x27;t reach; map that root</li></ul>
+<p>  folder in Setup, then scan again.</p>
+<ul><li><strong>No preview / SIGNAL LOST thumbnail</strong> — the file moved or was renamed; click it to trace it.</li><li><strong>ffprobe not found</strong> — open <strong>Setup &gt; Options</strong> and click <strong>GET FFMPEG</strong>; it downloads the tool</li></ul>
+<p>  for you (one click, no winget). The video-details column is optional — duplicate-finding works   without it.</p>
+<ul><li><strong>App won&#x27;t start / &quot;port in use&quot;</strong> — another copy is running; close it, or it&#x27;s logged as a</li></ul>
+<p>  start-up error.</p>
+<h3 id='your-data'>Your data</h3>
+<p>Everything stays on your computer. Settings and results are local files; API keys and the Plex sign-in live in your OS keychain. See INSTALL.md for exact locations.</p></div>
+<footer class="site"><div class="wrap">
+  <div>&copy; 2026 HackOn Systems &middot; <a href="https://github.com/Hackenon" target="_blank" rel="noopener">Source on GitHub</a></div>
+  <div class="fine">Not affiliated with Plex, Jellyfin, Radarr or Sonarr. Works alongside them.</div>
+</div></footer>
+</body>
+</html>

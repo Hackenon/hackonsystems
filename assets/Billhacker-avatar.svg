@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1">
+      <stop stop-color="#031a09"/>
+      <stop offset="1" stop-color="#0a2e14"/>
+    </linearGradient>
+    <linearGradient id="cap" x2="0" y2="1">
+      <stop stop-color="#114a26"/>
+      <stop offset="1" stop-color="#07200f"/>
+    </linearGradient>
+    <linearGradient id="skin" x2=".8" y2="1">
+      <stop stop-color="#e3b48f"/>
+      <stop offset="1" stop-color="#bd7a5c"/>
+    </linearGradient>
+    <linearGradient id="beard" x2="0" y2="1">
+      <stop stop-color="#b06a3c"/>
+      <stop offset="1" stop-color="#7d4524"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+
+  <!-- tile -->
+  <rect width="512" height="512" rx="80" fill="url(#bg)"/>
+
+  <!-- circuit traces + binary (phosphor) -->
+  <g fill="none" stroke="#33ff66" stroke-opacity=".20" stroke-width="3">
+    <path d="M26 120h70v48h44M486 85h-64v64h-38M20 330h58v-42h40M490 365h-68v-52h-40"/>
+    <circle cx="140" cy="168" r="5" fill="#33ff66"/><circle cx="384" cy="149" r="5" fill="#33ff66"/>
+    <circle cx="118" cy="288" r="5" fill="#33ff66"/><circle cx="382" cy="313" r="5" fill="#33ff66"/>
+  </g>
+  <g fill="#33ff66" opacity=".30" font-family="monospace" font-size="15">
+    <text x="28" y="226">0101</text><text x="405" y="230">1010</text>
+    <text x="35" y="275">010</text><text x="409" y="273">110</text>
+  </g>
+
+  <!-- shoulders / dark sweater -->
+  <path d="M78 512c8-102 62-150 178-150s170 48 178 150z" fill="#07200f"/>
+  <path d="M150 405c28-26 58-37 106-37s78 11 106 37l-32 107H182z" fill="#0b2c18"/>
+  <path d="M214 388l42 50 42-50-18-23h-48z" fill="#061c10"/>
+  <path d="M256 438v74" stroke="#1a9e3f" stroke-width="4" opacity=".7"/>
+  <path d="M108 455c34-27 56-36 82-41M404 455c-34-27-56-36-82-41" fill="none" stroke="#1a9e3f" stroke-width="4" opacity=".55"/>
+
+  <!-- neck -->
+  <path d="M212 328h88v74c-23 24-65 24-88 0z" fill="url(#skin)"/>
+
+  <!-- ears -->
+  <ellipse cx="170" cy="246" rx="19" ry="30" fill="#c08066"/>
+  <ellipse cx="342" cy="246" rx="19" ry="30" fill="#c08066"/>
+
+  <!-- face -->
+  <path d="M178 177c13-34 42-50 78-50s65 16 78 50v79c0 63-34 102-78 102s-78-39-78-102z" fill="url(#skin)"/>
+
+  <!-- side hair (auburn, short) under cap -->
+  <path d="M176 196c-4 22 0 42 8 58 2-26 4-44 10-60zM336 196c4 22 0 42-8 58-2-26-4-44-10-60z" fill="#8a4a28"/>
+
+  <!-- full beard, open at the mouth so nose, moustache and smile show -->
+  <path d="M176 264
+           C180 330 193 384 214 408
+           C229 427 243 437 256 439
+           C269 437 283 427 298 408
+           C319 384 332 330 336 264
+           C325 288 310 302 297 309
+           C288 329 274 340 256 340
+           C238 340 224 329 215 309
+           C202 302 187 288 176 264 Z" fill="url(#beard)"/>
+  <g stroke="#6f3c20" stroke-width="2" fill="none" opacity=".6" stroke-linecap="round">
+    <path d="M214 348c4 28 12 52 30 76M298 348c-4 28-12 52-30 76M256 362v76M232 358c3 22 8 40 16 60M280 358c-3 22-8 40-16 60"/>
+  </g>
+  <g stroke="#c98a52" stroke-width="2" fill="none" opacity=".5" stroke-linecap="round">
+    <path d="M224 354c3 22 9 42 20 60M288 354c-3 22-9 42-20 60M256 350v70"/>
+  </g>
+
+  <!-- brows (auburn) -->
+  <path d="M197 219c12-7 27-7 39-1M276 218c12-6 27-6 39 1" fill="none" stroke="#7d4524" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- nose (skin, fully visible) -->
+  <path d="M256 244l-10 34c5 6 14 7 20 3" fill="none" stroke="#a5654d" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="244" cy="280" rx="3" ry="2" fill="#9a5c46"/>
+  <ellipse cx="268" cy="280" rx="3" ry="2" fill="#9a5c46"/>
+
+  <!-- moustache (on the upper lip, distinct from the beard) -->
+  <path d="M221 291c7-5 15-6 22-3 5 2 9 5 13 5s8-3 13-5c7-3 15-2 22 3-3 12-15 20-27 19-3 0-6-1-8-2-2 1-5 2-8 2-12 1-24-7-27-19z" fill="#8a4a28"/>
+  <path d="M234 291c7-3 15-3 22 0M256 294c7-3 15-3 22-1" fill="none" stroke="#b07a40" stroke-width="2" opacity=".55" stroke-linecap="round"/>
+
+  <!-- smiling mouth with a hint of teeth -->
+  <path d="M233 311c8 8 15 11 23 11s15-3 23-11c-4 12-14 19-23 19s-19-7-23-19z" fill="#6b3426"/>
+  <path d="M240 313c10 4 23 4 33 0l-4 6c-8 3-17 3-25 0z" fill="#f1e2d4"/>
+
+  <!-- eyes (blue) -->
+  <ellipse cx="219" cy="244" rx="12" ry="7" fill="#eef3f0"/>
+  <ellipse cx="293" cy="244" rx="12" ry="7" fill="#eef3f0"/>
+  <circle cx="220" cy="244" r="5.4" fill="#3f7f8c"/><circle cx="220" cy="244" r="2.6" fill="#16242a"/>
+  <circle cx="292" cy="244" r="5.4" fill="#3f7f8c"/><circle cx="292" cy="244" r="2.6" fill="#16242a"/>
+
+  <!-- wire glasses (amber) + phosphor lens glint -->
+  <g fill="#33ff66" opacity=".22"><path d="M198 232h34l-22 26h-10z"/><path d="M272 232h34l-22 26h-10z"/></g>
+  <g fill="none" stroke="#ffb000" stroke-width="3">
+    <rect x="190" y="224" width="58" height="40" rx="18"/>
+    <rect x="264" y="224" width="58" height="40" rx="18"/>
+    <path d="M248 236c4-4 12-4 16 0M190 234l-17-5M322 234l17-5"/>
+  </g>
+
+  <!-- baseball cap -->
+  <path d="M176 192c0-60 34-94 80-94s80 34 80 94z" fill="url(#cap)"/>
+  <g fill="none" stroke="#1a9e3f" stroke-width="2" opacity=".55">
+    <path d="M256 100v92M212 106c-10 26-10 60 0 86M300 106c10 26 10 60 0 86"/>
+  </g>
+  <circle cx="256" cy="101" r="5" fill="#ffb000" opacity=".85"/>
+  <!-- front badge: amber chip with phosphor prompt -->
+  <rect x="233" y="138" width="46" height="30" rx="6" fill="none" stroke="#ffb000" stroke-width="2.5"/>
+  <text x="243" y="159" font-family="monospace" font-size="18" fill="#33ff66">&gt;_</text>
+  <!-- brim over forehead -->
+  <path d="M168 192 L344 192 C342 210 320 227 256 228 C192 227 170 210 168 192 Z" fill="#061c10"/>
+  <path d="M180 205c34 13 118 13 152 0" fill="none" stroke="#ffb000" stroke-width="2.5" stroke-linecap="round" opacity=".55"/>
+
+  <!-- phosphor rim light -->
+  <path d="M179 244c-4 56 6 112 36 150M333 244c4 56-6 112-36 150" fill="none" stroke="#33ff66" stroke-opacity=".5" stroke-width="3" filter="url(#glow)"/>
+
+  <!-- faint scanlines -->
+  <g stroke="#33ff66" stroke-opacity=".05" stroke-width="2">
+    <path d="M40 150h432M40 210h432M40 270h432M40 330h432M40 390h432M40 450h432"/>
+  </g>
+</svg>

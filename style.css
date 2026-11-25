@@ -1,0 +1,70 @@
+:root{
+  --phos:#33ff66; --rgb:51,255,102; --amber:#ffb000; --bg:#000;
+  --dim:#17632b; --soft:#bdeccb;
+  --glow:0 0 4px rgba(var(--rgb),.8), 0 0 12px rgba(var(--rgb),.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--phos);
+  font-family:"Courier New",ui-monospace,"DejaVu Sans Mono",monospace;
+  line-height:1.55; -webkit-font-smoothing:none;
+}
+/* faint CRT scanlines */
+body::after{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:50;
+  background:repeating-linear-gradient(rgba(0,0,0,0) 0 2px, rgba(0,0,0,.14) 2px 4px);
+}
+.wrap{max-width:920px; margin:0 auto; padding:0 20px}
+a{color:var(--phos); text-decoration:none; border-bottom:1px solid rgba(var(--rgb),.4)}
+a:hover{text-shadow:var(--glow); border-bottom-color:var(--phos)}
+h1,h2,h3{text-shadow:var(--glow); letter-spacing:1px}
+
+/* header */
+header.site{position:sticky; top:0; z-index:40; background:rgba(0,0,0,.92);
+  border-bottom:1px solid var(--dim); backdrop-filter:blur(3px)}
+header .wrap{display:flex; align-items:center; gap:18px; height:52px}
+header .brand{font-weight:bold; letter-spacing:2px; text-shadow:var(--glow); border:none}
+header nav{margin-left:auto; display:flex; gap:18px; flex-wrap:wrap}
+header nav a{border:none; font-size:.92rem}
+
+/* hero */
+.hero{text-align:center; padding:64px 20px 48px; border-bottom:1px solid var(--dim)}
+.hero img.logo{width:min(380px,82%); height:auto}
+.hero .tag{color:var(--amber); letter-spacing:3px; margin-top:6px; font-size:.95rem}
+.hero p.pitch{max-width:640px; margin:20px auto 0; color:var(--soft)}
+.btns{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:28px}
+.btn{display:inline-block; padding:12px 26px; border:1px solid var(--phos); color:var(--phos);
+  font-weight:bold; letter-spacing:1px}
+.btn.primary{background:var(--phos); color:#000}
+.btn:hover{box-shadow:var(--glow)}
+
+/* sections */
+section{padding:46px 0; border-bottom:1px solid var(--dim)}
+section h2{margin:0 0 24px}
+.features{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:18px}
+.card{border:1px solid var(--dim); padding:18px; background:rgba(var(--rgb),.03)}
+.card h3{margin:0 0 8px; font-size:1.05rem}
+.card p{margin:0; color:var(--soft)}
+.prompt{color:var(--amber)}
+
+/* doc pages */
+.doc{padding:34px 0 50px}
+.doc h2{border-bottom:1px solid var(--dim); padding-bottom:6px; margin-top:34px}
+.doc h3{margin-top:22px}
+.doc code{background:#05230f; padding:1px 6px; border:1px solid var(--dim)}
+.doc pre{background:#04170a; border:1px solid var(--dim); padding:14px; overflow:auto}
+.doc pre code{background:none; border:none; padding:0}
+.doc table{border-collapse:collapse; width:100%; margin:14px 0}
+.doc th,.doc td{border:1px solid var(--dim); padding:7px 11px; text-align:left; vertical-align:top}
+.doc ul,.doc ol{padding-left:22px}
+
+/* footer */
+footer.site{padding:34px 20px 48px; text-align:center; color:var(--soft); font-size:.88rem}
+footer.site a{color:var(--soft)}
+footer .fine{color:#5c8f6c; margin-top:10px; font-size:.82rem}
+
+/* company wordmark in the header */
+header .brand{display:flex;align-items:center}
+.brandlogo{height:30px;width:auto;display:block}
+.doc.about .portrait{display:block; width:min(200px,58%); height:auto; margin:6px auto 2px; border-radius:16px}
