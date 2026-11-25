@@ -16,7 +16,7 @@
 <div class='wrap doc'><h2 id='hackon-photo-video-dedupe-install'>HackOn Photo &amp; Video DeDupe — Install</h2>
 <h3 id='requirements'>Requirements</h3>
 <ul><li><strong>Python 3.10 or newer</strong> (the app is developed on 3.15).</li><li>Windows 10/11 or macOS. A local folder or a network share to scan.</li><li><strong>FFmpeg / ffprobe</strong> (for video resolution, codec and length) is handled for you:</li></ul>
-<p>  on Windows, open <strong>Setup &amp;rarr; Options</strong> and click <strong>GET FFMPEG</strong> &amp;mdash; the app downloads it into   its own folder (no winget, no admin, nothing installed system-wide). On macOS, if a system   <code>ffprobe</code> is on your PATH the app uses it; a one-click download for Mac is coming. Photo and   movie/TV duplicate-finding works with or without it &amp;mdash; it only adds the video details column.</p>
+<p>  on Windows, open <strong>Setup → Options</strong> and click <strong>GET FFMPEG</strong> — the app downloads it into   its own folder (no winget, no admin, nothing installed system-wide). On macOS, if   <code>ffprobe</code> is on your PATH the app uses it; a one-click download for Mac is coming. Photo and   movie/TV duplicate-finding works with or without it — it only adds the video details column.</p>
 <h3 id='install-run-from-source'>Install &amp; run (from source)</h3>
 <pre class='help-code'># 1. Get the code (download the ZIP or clone the repo), then open a terminal in its folder.
 
@@ -32,9 +32,9 @@ pip install -r requirements.txt
 
 # 5. Run it
 python app.py</pre>
-<p>The app opens your default browser at <strong>http://127.0.0.1:5000</strong> automatically. (Start it with <code>python app.py --no-browser</code> to skip that.)</p>
+<p>The app opens your default browser at <strong>http://127.0.0.1:5000</strong> automatically. Start it with <code>python app.py --no-browser</code> to skip that — useful when you&#x27;re running it on a headless machine or want to open the page yourself (the web interface is the only UI, so you&#x27;ll still browse to that address).</p>
 <h3 id='first-run'>First run</h3>
-<ol><li>The <strong>SETUP</strong> page opens. You can <strong>SKIP FOR NOW</strong> — photo scanning needs no setup.</li><li>Optional: on first run, press <strong>PROBE LOCAL NETWORK</strong> to find Radarr/Sonarr/Plex, or enter them</li></ol>
+<ol><li>The <strong>SETUP</strong> page opens. You can <strong>SKIP FOR NOW</strong> — photo scanning needs no setup.</li><li>Optional: on first run, press <strong>PROBE LOCAL NETWORK</strong> to find Radarr/Sonarr/Plex/Jellyfin, or enter them</li></ol>
 <p>   by hand, then <strong>SAVE SETTINGS</strong>.</p>
 <ol><li>Go to <strong>PHOTO SCAN</strong>, pick a folder, and <strong>RUN SCAN</strong>.</li></ol>
 <h3 id='updating'>Updating</h3>

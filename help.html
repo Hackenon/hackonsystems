@@ -29,7 +29,9 @@
 <ol><li>Press <strong>MOVE</strong> to move the unticked files into <code>_review</code>. Press <strong>UNDO</strong> to put the last batch</li></ol>
 <p>   back exactly where it was.</p>
 <ol><li><strong>Empty folders</strong> — a section lists any folder under your scan with no photos or videos.</li></ol>
-<p>   Completely empty ones are ticked for you; folders that still hold other files are shown so you can    decide. <strong>DELETE SELECTED PERMANENTLY</strong> removes the ticked ones (this one has no undo).</p>
+<p>   Completely empty ones are ticked for you; folders that still hold other files are shown so you can    decide. <strong>DELETE SELECTED PERMANENTLY</strong> removes the ticked ones (<strong>THIS HAS NO UNDO</strong>).</p>
+<h3 id='the-trace-if-a-photo-file-was-moved-or-renamed-after-a-scan-recovery-can-be-attempted'>(the &quot;Trace&quot;) If a Photo file was moved or renamed after a scan recovery can be attempted.</h3>
+<p>Open a photo that&#x27;s since moved and the app runs <strong>TRACE.EXE</strong>: it sweeps the scanned folder to find the file again (by timestamp, picture fingerprint or exact match), shows it, and offers to <strong>RECOVER</strong> — which just updates where the results look. No files are moved by a trace.</p>
 <h4 id='kinds-of-match'>Kinds of match</h4>
 <ul><li><strong>Exact duplicates</strong> — byte-for-byte identical files.</li><li><strong>Copies</strong> — the same photo re-saved/resized; the highest-resolution one is kept by default.</li><li><strong>Similar shots</strong> — burst/near-identical shots; nothing is pre-selected, you choose.</li></ul>
 <h3 id='movies-tv'>Movies &amp; TV</h3>
@@ -38,15 +40,13 @@
 <ul><li><strong>Extra copies</strong> — other video files in a tracked folder. The tracked file starts as KEEP.</li><li><strong>Stray folders / loose files</strong> — folders or files that belong to no movie/episode. Each shows</li></ul>
 <p>  where it is (<strong>AT:</strong> its full path) and, when known, where Radarr/Sonarr keeps the real copy, so   you can decide what to do. Tick to move.</p>
 <ul><li><strong>Empty folders</strong> — their own section, listing folders with no video. Completely empty ones are</li></ul>
-<p>  pre-ticked; folders that still hold files (posters, <code>.nfo</code>) are shown and left unticked.   <strong>DELETE SELECTED PERMANENTLY</strong> removes the ticked ones (no undo).</p>
+<p>  pre-ticked; folders that still hold files (posters, <code>.nfo</code>) are shown and left unticked.   <strong>DELETE SELECTED PERMANENTLY</strong> removes the ticked ones (<strong>THIS HAS NO UNDO</strong>).</p>
 <ul><li><strong>Two move options</strong> — <strong>MOVE → DEFAULT</strong> sends ticked items to the per-app default move folder</li></ul>
 <p>  (set in <strong>Setup &gt; Options</strong>; when it&#x27;s blank they go to a <code>_review</code> folder inside each root, with   <code>_review/*</code> added to <code>.plexignore</code>, or an <code>.ignore</code> file for Jellyfin). <strong>MOVE TO LOCATION…</strong> browses to a folder to relocate a stray   (for example to fix the library). Radarr/Sonarr and your media server (Plex or Jellyfin) rescan after either; <strong>UNDO</strong> puts the last   batch back.</p>
 <ul><li><strong>Fast byte-identical check</strong> — for files over 100 MB the scan compares the first and last 50 MB</li></ul>
 <p>  (smaller files are read in full), so large libraries over a network scan quickly. A match found   this way is flagged <strong>&quot;likely identical -- not fully verified&quot;</strong>, with a <strong>VERIFY (FULL HASH)</strong>   button that reads the whole files to confirm (or shows which ones actually differ). It streams to   the scan theater and shows a time estimate.</p>
 <ul><li><strong>Tracked-file warning</strong> — if you tick a file Radarr/Sonarr still tracks, you&#x27;re warned, because</li></ul>
 <p>  moving it may make them re-download it.</p>
-<h3 id='if-a-file-was-moved-or-renamed-after-a-scan-the-trace'>If a file was moved or renamed after a scan (the &quot;trace&quot;)</h3>
-<p>Open a photo that&#x27;s since moved and the app runs <strong>TRACE.EXE</strong>: it sweeps the scanned folder to find the file again (by timestamp, picture fingerprint or exact match), shows it, and offers to <strong>RECOVER</strong> — which just updates where the results look. No files are moved by a trace.</p>
 <h3 id='setup'>Setup</h3>
 <p>Pick each app from its dropdown — a <strong>media server</strong> (Plex or Jellyfin) and a <strong>movie/TV library manager</strong> (Radarr/Sonarr). An app&#x27;s settings appear only once you select it; apps that aren&#x27;t built yet (Emby, Medusa/SickGear) show as <strong>coming soon</strong>.</p>
 <ul><li><strong>Radarr / Sonarr</strong> — enter the address and API key (Settings &gt; General &gt; Security in each app).</li></ul>
