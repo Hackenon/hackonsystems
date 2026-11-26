@@ -33,6 +33,9 @@ pip install -r requirements.txt
 # 5. Run it
 python app.py</pre>
 <p>The app opens your default browser at <strong>http://127.0.0.1:5000</strong> automatically. Start it with <code>python app.py --no-browser</code> to skip that — useful when you&#x27;re running it on a headless machine or want to open the page yourself (the web interface is the only UI, so you&#x27;ll still browse to that address).</p>
+<p>By default the app answers only on the machine it runs on (<code>127.0.0.1</code>). To reach it from another computer — for example running it on a server or NAS — give it a network address:</p>
+<pre class='help-code'>python app.py --no-browser --host 0.0.0.0</pre>
+<p>Then browse to <code>http://&lt;that-machine&#x27;s-ip&gt;:5000</code> from elsewhere on your network. <strong>Security:</strong> the app has no password and can move or delete files, so only open it to networks you trust; if it&#x27;s still unreachable after this, allow TCP port 5000 through that machine&#x27;s firewall. The Windows installer offers an <strong>&quot;Allow other computers on your network to reach it&quot;</strong> checkbox (off by default) that opens that port for you on Private networks and removes it on uninstall.</p>
 <h3 id='first-run'>First run</h3>
 <ol><li>The <strong>SETUP</strong> page opens. You can <strong>SKIP FOR NOW</strong> — photo scanning needs no setup.</li><li>Optional: on first run, press <strong>PROBE LOCAL NETWORK</strong> to find Radarr/Sonarr/Plex/Jellyfin, or enter them</li></ol>
 <p>   by hand, then <strong>SAVE SETTINGS</strong>.</p>
